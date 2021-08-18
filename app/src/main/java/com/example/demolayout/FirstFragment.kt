@@ -31,6 +31,7 @@ class FirstFragment : Fragment(), View.OnClickListener {
         acount.text = getacount
         pass.text = getpass
         btn_senddata.setOnClickListener(this)
+        btn_sendtofrm.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {

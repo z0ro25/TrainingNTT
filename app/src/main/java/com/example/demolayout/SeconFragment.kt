@@ -20,6 +20,11 @@ class SeconFragment : Fragment(), View.OnClickListener {
     ): View? {
 
         return inflater.inflate(R.layout.fragment_secon_layout, container, false)
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         var a = arguments?.getString("acoutfrm")
         var b = arguments?.getString("passfrm")
         tv_acount_frm2.text = a
@@ -27,14 +32,11 @@ class SeconFragment : Fragment(), View.OnClickListener {
         btn_goback.setOnClickListener(this)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
     override fun onClick(v: View) {
         when(v.id){
             R.id.btn_goback->{
-                //this.onDestroy()
+                var frm1 = FirstFragment()
+                fragmentManager?.beginTransaction()?.replace(R.id.ct_frame,frm1)?.commit()
             }
         }
     }
