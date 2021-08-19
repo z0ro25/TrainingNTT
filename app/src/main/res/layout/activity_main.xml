@@ -23,22 +23,17 @@
 
     <EditText
         android:id="@+id/edt_acount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Text_Styles"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
         android:hint="@string/ACOUNT_NAME"
-        android:textSize="25dp"
         app:layout_constraintTop_toBottomOf="@+id/tv_hello"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/edt_pass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Text_Styles"
         android:layout_marginHorizontal="20dp"
         android:hint="@string/PASS_WORD"
-        android:textSize="25dp"
         app:layout_constraintTop_toBottomOf="@+id/edt_acount"
         tools:ignore="MissingConstraints" />
 
