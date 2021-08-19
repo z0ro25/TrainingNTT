@@ -2,4 +2,6 @@
     <string name="app_name">demolayout</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ACOUNT_NAME">Acount</string>
+    <string name="PASS_WORD">PassWord</string>
 </resources>
