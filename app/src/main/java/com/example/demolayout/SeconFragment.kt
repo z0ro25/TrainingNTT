@@ -34,9 +34,10 @@ class SeconFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when(v.id){
-            R.id.btn_goback->{
-                var frm1 = FirstFragment()
-                fragmentManager?.beginTransaction()?.replace(R.id.ct_frame,frm1)?.commit()
+           R.id.btn_goback->{
+//                activity?.supportFragmentManager?.findFragmentByTag("firstfragment")?.let {
+//                    activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.ct_frame,it)?.commit()
+//                }
             }
         }
     }

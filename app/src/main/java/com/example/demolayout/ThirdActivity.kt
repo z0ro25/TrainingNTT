@@ -14,4 +14,6 @@ class ThirdActivity : AppCompatActivity() {
         tv_acount_ac3.text = a
         tv_pass_Ac3.text = b
     }
+
+
 }

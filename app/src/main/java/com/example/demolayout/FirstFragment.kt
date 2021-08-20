@@ -7,11 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_first_layout.*
 import kotlinx.android.synthetic.main.seconactivity_layout.*
 
 
-class FirstFragment : Fragment(), View.OnClickListener {
+class FirstFragment(val passDataInterface: PassDataInterface) : Fragment(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -22,6 +23,7 @@ class FirstFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_first_layout, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -35,20 +37,23 @@ class FirstFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        when(v.id){
-            R.id.btn_senddata->{
-                var intent = Intent(activity?.application,ThirdActivity::class.java)
-                intent.putExtra("a","truong")
-                intent.putExtra("b","123456")
-                startActivity(intent)
+        when (v.id) {
+            R.id.btn_senddata -> {
+                passDataInterface.passdata("truong", "123456")
             }
-            R.id.btn_sendtofrm->{
+            R.id.btn_sendtofrm -> {
+                //Navigation.findNavController(v).navigate(R.id.btn_sendtofrm)
                 var seconFragment = SeconFragment()
                 var bundle = Bundle()
-                bundle.putString("acoutfrm","truong")
-                bundle.putString("passfrm","123456")
+                bundle.putString("acoutfrm", "truong")
+                bundle.putString("passfrm", "123456")
                 seconFragment.arguments = bundle
-                fragmentManager?.beginTransaction()?.replace(R.id.ct_frame,seconFragment)?.commit()
+                activity?.supportFragmentManager
+                    ?.beginTransaction()
+                    ?.replace(R.id.ct_frame, seconFragment, "seconfragment")
+                    ?.addToBackStack("seconfragment")
+                    ?.commit()
+//                fragmentManager?.beginTransaction()?.replace(R.id.ct_frame,seconFragment)?.commit()
             }
         }
     }
